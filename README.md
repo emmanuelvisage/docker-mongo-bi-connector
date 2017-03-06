@@ -23,3 +23,6 @@ just add the following env variables:
 
 #docker compose
 I added a docker compose exemple as an exemple that links the bi-connector container to a mongo container.
+
+#license
+Keep in mind that this include licensed content and requires a Mongodb entreprise license.
