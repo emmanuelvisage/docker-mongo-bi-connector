@@ -1,0 +1,173 @@
+MongoDB, Inc. Technology Evaluation Agreement
+
+BY INSTALLING OR USING MONGODB, INC.'S CONNECTOR FOR
+BI PRODUCT ("PRODUCT"), YOU ARE AGREEING ON BEHALF
+OF THE ENTITY LICENSING THE PRODUCT ("LICENSEE") THAT
+LICENSEE WILL BE BOUND BY AND IS BECOMING A PARTY
+TO THIS MONGODB, INC. TECHNOLOGY EVALUATION
+AGREEMENT  ("AGREEMENT") AND THAT YOU HAVE THE
+AUTHORITY TO BIND LICENSEE. IF LICENSEE DOES NOT
+AGREE TO ALL OF THE TERMS OF THIS AGREEMENT, DO NOT
+INSTALL OR USE THE PRODUCT. LICENSEE HAS NOT BECOME
+A LICENSEE OF, AND IS NOT AUTHORIZED TO USE THE
+PRODUCT UNLESS AND UNTIL IT AGREES TO BE BOUND BY
+THESE LICENSE TERMS. THE "EFFECTIVE DATE" FOR THIS
+AGREEMENT SHALL BE THE DAY YOU INSTALL OR USE THE
+PRODUCT.   IF LICENSEE HAS ENTERED INTO A SEPARATE
+LICENSE AGREEMENT WITH MONGODB, INC. FOR THE
+PRODUCT, THE TERMS OF THIS MONGODB, INC. TECHNOLOGY
+EVALUATION AGREEMENT WILL NOT APPLY.
+
+1. GRANT OF LICENSE.
+1.1 The License.  Subject to the terms of this
+Agreement, MongoDB, Inc. grants to Licensee a
+personal, non-exclusive, non-transferable, limited
+license to install the Product on computers owned or
+controlled by Licensee and to use the Product and
+related materials ("Materials") for Licensee's
+internal business use to evaluate, test and perform
+internal pilot projects with the Product and
+Materials solely to determine their suitability for
+Licensee's business requirements.
+
+1.2 License Conditions.  MongoDB, Inc. owns all
+right, title and interest in and to the Product,
+the Materials and any modifications to the Product
+and the Materials.  Licensee shall not itself, or
+through any parent, subsidiary, affiliate, agent or
+other third party: (i) use the Product in a
+production environment or for any purpose other than
+for evaluation purposes;  (ii) sell, lease, license,
+distribute, sublicense or otherwise transfer in
+whole or in part, any Product or the Materials to a
+third party; (iii) decompile, disassemble,
+translate, reverse engineer or otherwise attempt to
+derive source code from the Product; (iv) allow
+access or permit use of the Product by any users
+other than employees and contractors or Licensee;
+(v) create, develop, license, install, use, or
+deploy any third party software or services to
+circumvent, enable, modify or provide access,
+permissions or rights which violate the technical
+restrictions of the Product; (vi) modify or create
+derivative works based upon the Product; or (vii)
+disclose the results of any benchmark test of the
+Product to any third party without MongoDB, Inc.'s
+prior written approval.  Licensee will configure its
+operating environment to prevent the evaluation from
+causing business interruption or loss of Licensee
+data.
+
+2. WARRANTY DISCLAIMER. MONGODB, INC. EXPRESSLY
+DISCLAIMS ANY AND ALL REPRESENTATIONS, WARRANTIES,
+GUARANTEES, CONDITIONS AND UNDERTAKINGS WITH RESPECT
+TO THE PRODUCT AND MATERIALS AND THEIR PERFORMANCE,
+INCLUDING, WITHOUT LIMITATION, ALL IMPLIED WARRANTIES
+OF MERCHANTABILITY, NON-INFRINGEMENT OR FITNESS FOR
+A PARTICULAR PURPOSE.
+3. LIABILITY.
+3.1 LIMITATION OF LIABILITY. MONGODB, INC. AND ITS
+LICENSORS SHALL NOT HAVE LIABILITY FOR ANY SPECIAL,
+CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, PUNITIVE, OR
+INDIRECT DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+LOSS OF PROFITS, REVENUES, DATA AND/OR USE), EVEN
+IF ADVISED OF THE POSSIBILITY THEREOF.
+NOTWITHSTANDING ANY OTHER CLAUSE IN THIS AGREEMENT,
+MONGODB, INC.'S AND ITS LICENSOR'S TOTAL AGGREGATE
+LIABILITY, REGARDLESS OF THE FORM OF THE CAUSE OF
+ACTION, WHETHER IN CONTRACT, TORT (INCLUDING WITHOUT
+LIMITATION NEGLIGENCE), STATUTE OR OTHERWISE, AND
+LICENSEE'S SOLE AND EXCLUSIVE REMEDY, SHALL BE
+LIMITED TO PROVEN DIRECT DAMAGES CAUSED BY MONGODB,
+INC. IN AN AMOUNT NOT TO EXCEED TEN THOUSAND DOLLARS
+(US $10,000).
+3.2 Allocation of Risk. The provisions of this
+Section 3 allocate risks under this Agreement
+between Licensee and MongoDB, Inc.  The foregoing
+limitations, exclusions and disclaimers apply to the
+maximum extent permitted by applicable law, even if
+any remedy fails in its essential purpose.
+
+4. TERM AND TERMINATION. The term of this Agreement
+will begin and end on the date Effective Date and
+will continue for a period of one (1) year. This
+Agreement may be terminated at any time by either
+party upon thirty (30) days' prior written notice to
+the other party.  Upon termination or expiration of
+this Agreement, the Product and all Materials must
+be promptly de-installed and destroyed, unless the
+parties have entered into a further license
+agreement. Termination will not affect any claim,
+liability or right arising prior to termination.
+Sections 2, 3, 4 and 5 will survive the expiration
+or termination of this Agreement.
+
+5. GENERAL.
+5.1 Independent Parties.  Neither Licensee nor
+MongoDB, Inc. is a legal representative, partner or
+agent of the other.
+5.2 Entirety.  This Agreement represents the entire
+agreement of the parties with regard to the Product
+and Materials and supersedes all other agreements
+related to this subject matter.  Delivery of an
+executed counterpart of this Agreement by facsimile,
+email or any other reliable means shall be deemed to
+be as effective for all purposes as delivery of the
+manually executed counterpart.  This Agreement may
+not be amended except in writing signed by both
+parties.
+
+5.3 Assignment.  Licensee may not assign this
+Agreement or otherwise transfer the use of any
+Product, whether by operation of law or
+otherwise, without the prior written consent of
+MongoDB, Inc.
+
+5.4 Notices. Any notice required or permitted under
+the terms of this Agreement or required by law must
+be in writing and must be sent to each company's
+corporate headquarters and is effective when
+received.
+
+5.5 Waiver.  Any waiver of the provisions of this
+Agreement or of a party's rights or remedies under
+this Agreement must be in writing to be effective.
+Failure or delay by a party to enforce the
+provisions of this Agreement or its rights or
+remedies at any time, will not be construed and will
+not be deemed to be a waiver of such party's rights
+under this Agreement and will not in any way affect
+the validity of the whole or any part of this
+Agreement or prejudice such party's right to take
+subsequent action.
+
+5.6 Severability.  If any provision in this
+Agreement (including, without limitation, the
+prohibition on de-compiling or reverse engineering)
+is held to be illegal, invalid, or unenforceable,
+the provision will be enforced to the maximum extent
+possible so as to effect the intent of the parties,
+and the remaining provisions of this Agreement will
+remain in full force and effect.
+
+5.7 Government Regulations.  Licensee may not export
+or re-export the Product except in compliance with
+the United States Export Administration Act and the
+related rules and regulations and similar non-U.S.
+government restrictions, if applicable.  The Product
+and accompanying Documentation are deemed to be
+"commercial computer software" and "commercial
+computer software documentation", respectively,
+pursuant to DFAR Section 227.7202 and FAR Section
+12.212(b), as applicable.  Any use, modification,
+reproduction, release, performing, displaying or
+disclosing of the Product and Documentation by the
+U.S. Government shall be governed solely by the
+terms of this Agreement.
+
+5.8 Jurisdiction.  This Agreement will be governed
+by the laws of New York without regard for its
+choice of law provision.  The parties agree to
+irrevocably submit to the exclusive jurisdiction of
+the state or federal courts located in New York and
+waive all objections thereto.
