@@ -26,3 +26,14 @@ I added a docker compose exemple as an exemple that links the bi-connector conta
 
 #license
 Keep in mind that this include licensed content and requires a Mongodb entreprise license.
+
+#FAQ
+**Sometimes the connector connects before my mongo db is loaded thus failing.**
+
+That's why I included the wait-for-it.sh script that will allow you to check if the host and port is available before initializing the connection.
+To use it you need to override the  default command
+
+Example with docker compose:
+
+```command: ["wait-for-it.sh", "-t", "0", "my-mongo-db:27017", "--","run.sh","-vv"] ```
+
