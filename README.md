@@ -20,6 +20,9 @@ just add the following env variables:
 + MONGO_USERNAME
 + MONGO_PASSWORD
 + MONGO_AUTH_DB
++ SSL_STRING
+
+SSL string will be the subj option to the openssl auto-signed certificate creation that is needed to run sqld in auth mode...
 
 #docker compose
 I added a docker compose exemple as an exemple that links the bi-connector container to a mongo container.
