@@ -1,8 +1,16 @@
 #!/bin/sh
 
+rm -f tmpschema.drdl
+schemaFile="schema.drdl"
+if [ "$1" = "-e" -a input="-" ];then
+    cat $input >> tmpschema.drdl
+    schemaFile="tmpschema.drdl"
+fi
+
 mongoDRDLParams="--host $MONGO_HOST --port $MONGO_PORT -d $DB_NAME -o schema.drdl"
 MONGO_URI="mongodb://${MONGO_HOST}:${MONGO_PORT}"
-mongoSQLDParams="--schema schema.drdl --mongo-uri $MONGO_URI"
+mongoSQLDParams="--schema ${schemaFile} --mongo-uri $MONGO_URI"
+
 if [ -n "$MONGO_USERNAME" ] && [ -n "$MONGO_PASSWORD" ]  && [ -n "$MONGO_AUTH_DB" ]  && [ -n "$SSL_STRING" ]; then
     if [ ! -f ./bi_connector_auto_signed.pem ]; then
         openssl req -nodes -newkey rsa:2048 -keyout temp.key -out temp.crt -x509 -days 365 -subj $SSL_STRING
@@ -17,5 +25,8 @@ fi
 TEMP_FILE="/tmp/mysql.sock";
 rm -f $TEMP_FILE
 
-`/usr/local/bin/mongodrdl ${mongoDRDLParams}`
+if ! [ -f "tmpschema.drdl" ]; then
+    `/usr/local/bin/mongodrdl ${mongoDRDLParams}`
+fi
+
 `/usr/local/bin/mongosqld ${mongoSQLDParams}`

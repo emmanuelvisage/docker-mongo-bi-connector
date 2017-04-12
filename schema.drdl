@@ -1,0 +1,920 @@
+schema:
+- db: visage
+  tables:
+  - table: bountyHistories
+    collection: bountyHistories
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: amount
+      MongoType: int
+      SqlName: amount
+      SqlType: int
+    - Name: job
+      MongoType: bson.ObjectId
+      SqlName: job
+      SqlType: varchar
+    - Name: modifiedAt
+      MongoType: date
+      SqlName: modifiedAt
+      SqlType: timestamp
+  - table: candidate-submission
+    collection: candidate-submission
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: at
+      MongoType: date
+      SqlName: at
+      SqlType: timestamp
+    - Name: candidate
+      MongoType: bson.ObjectId
+      SqlName: candidate
+      SqlType: varchar
+    - Name: candidateCVmd5
+      MongoType: string
+      SqlName: candidateCVmd5
+      SqlType: varchar
+    - Name: candidateCVmd5Hash
+      MongoType: string
+      SqlName: candidateCVmd5Hash
+      SqlType: varchar
+    - Name: candidateEmail
+      MongoType: string
+      SqlName: candidateEmail
+      SqlType: varchar
+    - Name: candidateEmailHash
+      MongoType: string
+      SqlName: candidateEmailHash
+      SqlType: varchar
+    - Name: committed
+      MongoType: bool
+      SqlName: committed
+      SqlType: boolean
+    - Name: disqualified
+      MongoType: bool
+      SqlName: disqualified
+      SqlType: boolean
+    - Name: job
+      MongoType: bson.ObjectId
+      SqlName: job
+      SqlType: varchar
+    - Name: recruiter
+      MongoType: string
+      SqlName: recruiter
+      SqlType: varchar
+    - Name: review._id
+      MongoType: bson.ObjectId
+      SqlName: review._id
+      SqlType: varchar
+    - Name: review.outstanding
+      MongoType: bool
+      SqlName: review.outstanding
+      SqlType: boolean
+    - Name: review.pass
+      MongoType: bool
+      SqlName: review.pass
+      SqlType: boolean
+    - Name: review.reason
+      MongoType: string
+      SqlName: review.reason
+      SqlType: varchar
+    - Name: review.reviewedBy
+      MongoType: string
+      SqlName: review.reviewedBy
+      SqlType: varchar
+    - Name: status
+      MongoType: string
+      SqlName: status
+      SqlType: varchar
+    - Name: submittedAt
+      MongoType: date
+      SqlName: submittedAt
+      SqlType: timestamp
+  - table: candidate-submission_history
+    collection: candidate-submission
+    pipeline:
+    - $unwind:
+        includeArrayIndex: history_idx
+        path: $history
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: history._id
+      MongoType: bson.ObjectId
+      SqlName: history._id
+      SqlType: varchar
+    - Name: history.at
+      MongoType: date
+      SqlName: history.at
+      SqlType: timestamp
+    - Name: history.status
+      MongoType: string
+      SqlName: history.status
+      SqlType: varchar
+    - Name: history_idx
+      MongoType: int
+      SqlName: history_idx
+      SqlType: int
+  - table: candidate-submission_notes
+    collection: candidate-submission
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+  - table: candidates
+    collection: candidates
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: candidate.cv.identifier
+      MongoType: string
+      SqlName: candidate.cv.identifier
+      SqlType: varchar
+    - Name: candidate.cv.md5
+      MongoType: string
+      SqlName: candidate.cv.md5
+      SqlType: varchar
+    - Name: candidate.cv.originalFilename
+      MongoType: string
+      SqlName: candidate.cv.originalFilename
+      SqlType: varchar
+    - Name: candidate.email
+      MongoType: string
+      SqlName: candidate.email
+      SqlType: varchar
+    - Name: candidate.employer
+      MongoType: string
+      SqlName: candidate.employer
+      SqlType: varchar
+    - Name: candidate.jobTitle
+      MongoType: string
+      SqlName: candidate.jobTitle
+      SqlType: varchar
+    - Name: candidate.location
+      MongoType: string
+      SqlName: candidate.location
+      SqlType: varchar
+    - Name: candidate.name
+      MongoType: string
+      SqlName: candidate.name
+      SqlType: varchar
+    - Name: candidate.nationality
+      MongoType: string
+      SqlName: candidate.nationality
+      SqlType: varchar
+    - Name: candidate.picture.identifier
+      MongoType: string
+      SqlName: candidate.picture.identifier
+      SqlType: varchar
+    - Name: candidate.picture.md5
+      MongoType: string
+      SqlName: candidate.picture.md5
+      SqlType: varchar
+    - Name: candidate.picture.originalFilename
+      MongoType: string
+      SqlName: candidate.picture.originalFilename
+      SqlType: varchar
+    - Name: candidate.socialPhotoUrl
+      MongoType: string
+      SqlName: candidate.socialPhotoUrl
+      SqlType: varchar
+    - Name: created_at
+      MongoType: date
+      SqlName: created_at
+      SqlType: timestamp
+  - table: candidates_candidate_applications
+    collection: candidates
+    pipeline:
+    - $unwind:
+        includeArrayIndex: candidate.applications_idx
+        path: $candidate.applications
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: candidate.applications
+      MongoType: bson.ObjectId
+      SqlName: candidate.applications
+      SqlType: varchar
+    - Name: candidate.applications_idx
+      MongoType: int
+      SqlName: candidate.applications_idx
+      SqlType: int
+  - table: candidates_candidate_socialProfiles
+    collection: candidates
+    pipeline:
+    - $unwind:
+        includeArrayIndex: candidate.socialProfiles_idx
+        path: $candidate.socialProfiles
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: candidate.socialProfiles.bio
+      MongoType: string
+      SqlName: candidate.socialProfiles.bio
+      SqlType: varchar
+    - Name: candidate.socialProfiles.followers
+      MongoType: int
+      SqlName: candidate.socialProfiles.followers
+      SqlType: int
+    - Name: candidate.socialProfiles.following
+      MongoType: int
+      SqlName: candidate.socialProfiles.following
+      SqlType: int
+    - Name: candidate.socialProfiles.id
+      MongoType: string
+      SqlName: candidate.socialProfiles.id
+      SqlType: varchar
+    - Name: candidate.socialProfiles.type
+      MongoType: string
+      SqlName: candidate.socialProfiles.type
+      SqlType: varchar
+    - Name: candidate.socialProfiles.typeId
+      MongoType: string
+      SqlName: candidate.socialProfiles.typeId
+      SqlType: varchar
+    - Name: candidate.socialProfiles.typeName
+      MongoType: string
+      SqlName: candidate.socialProfiles.typeName
+      SqlType: varchar
+    - Name: candidate.socialProfiles.url
+      MongoType: string
+      SqlName: candidate.socialProfiles.url
+      SqlType: varchar
+    - Name: candidate.socialProfiles.username
+      MongoType: string
+      SqlName: candidate.socialProfiles.username
+      SqlType: varchar
+    - Name: candidate.socialProfiles_idx
+      MongoType: int
+      SqlName: candidate.socialProfiles_idx
+      SqlType: int
+  - table: candidates_roles
+    collection: candidates
+    pipeline:
+    - $unwind:
+        includeArrayIndex: roles_idx
+        path: $roles
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: roles
+      MongoType: string
+      SqlName: roles
+      SqlType: varchar
+    - Name: roles_idx
+      MongoType: int
+      SqlName: roles_idx
+      SqlType: int
+  - table: experts-assignment
+    collection: experts-assignment
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: assigned
+      MongoType: date
+      SqlName: assigned
+      SqlType: timestamp
+    - Name: expert
+      MongoType: string
+      SqlName: expert
+      SqlType: varchar
+    - Name: job
+      MongoType: bson.ObjectId
+      SqlName: job
+      SqlType: varchar
+    - Name: maxValidation
+      MongoType: int
+      SqlName: maxValidation
+      SqlType: int
+    - Name: onHold
+      MongoType: bool
+      SqlName: onHold
+      SqlType: boolean
+  - table: invitations
+    collection: invitations
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: email
+      MongoType: string
+      SqlName: email
+      SqlType: varchar
+    - Name: key
+      MongoType: string
+      SqlName: key
+      SqlType: varchar
+    - Name: role
+      MongoType: string
+      SqlName: role
+      SqlType: varchar
+    - Name: sentOn
+      MongoType: date
+      SqlName: sentOn
+      SqlType: timestamp
+    - Name: status
+      MongoType: string
+      SqlName: status
+      SqlType: varchar
+  - table: job-offers
+    collection: job-offers
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: bounty
+      MongoType: int
+      SqlName: bounty
+      SqlType: int
+    - Name: city
+      MongoType: string
+      SqlName: city
+      SqlType: varchar
+    - Name: description
+      MongoType: string
+      SqlName: description
+      SqlType: varchar
+    - Name: draftCreatedAt
+      MongoType: date
+      SqlName: draftCreatedAt
+      SqlType: timestamp
+    - Name: employer_id
+      MongoType: string
+      SqlName: employer_id
+      SqlType: varchar
+    - Name: industry
+      MongoType: string
+      SqlName: industry
+      SqlType: varchar
+    - Name: launched
+      MongoType: bool
+      SqlName: launched
+      SqlType: boolean
+    - Name: launchedAt
+      MongoType: date
+      SqlName: launchedAt
+      SqlType: timestamp
+    - Name: list.candidates
+      MongoType: string
+      SqlName: list.candidates
+      SqlType: varchar
+    - Name: list.employers
+      MongoType: string
+      SqlName: list.employers
+      SqlType: varchar
+    - Name: list.experts
+      MongoType: string
+      SqlName: list.experts
+      SqlType: varchar
+    - Name: list.recruiters
+      MongoType: string
+      SqlName: list.recruiters
+      SqlType: varchar
+    - Name: location
+      MongoType: string
+      SqlName: location
+      SqlType: varchar
+    - Name: maxSourced
+      MongoType: int
+      SqlName: maxSourced
+      SqlType: int
+    - Name: maxSourcedTrial
+      MongoType: int
+      SqlName: maxSourcedTrial
+      SqlType: int
+    - Name: requirements._id
+      MongoType: bson.ObjectId
+      SqlName: requirements._id
+      SqlType: varchar
+    - Name: requirements.candidateDescription
+      MongoType: string
+      SqlName: requirements.candidateDescription
+      SqlType: varchar
+    - Name: requirements.jobTitle
+      MongoType: string
+      SqlName: requirements.jobTitle
+      SqlType: varchar
+    - Name: requirements.miscellaneous
+      MongoType: string
+      SqlName: requirements.miscellaneous
+      SqlType: varchar
+    - Name: requirements.resLocation
+      MongoType: string
+      SqlName: requirements.resLocation
+      SqlType: varchar
+    - Name: requirements.salary
+      MongoType: string
+      SqlName: requirements.salary
+      SqlType: varchar
+    - Name: role
+      MongoType: string
+      SqlName: role
+      SqlType: varchar
+    - Name: salaryRange
+      MongoType: string
+      SqlName: salaryRange
+      SqlType: varchar
+    - Name: source
+      MongoType: string
+      SqlName: source
+      SqlType: varchar
+    - Name: sourceId
+      MongoType: string
+      SqlName: sourceId
+      SqlType: varchar
+    - Name: sourcing
+      MongoType: bool
+      SqlName: sourcing
+      SqlType: boolean
+    - Name: status
+      MongoType: string
+      SqlName: status
+      SqlType: varchar
+    - Name: submissions
+      MongoType: int
+      SqlName: submissions
+      SqlType: int
+    - Name: submitted
+      MongoType: date
+      SqlName: submitted
+      SqlType: timestamp
+    - Name: tandc
+      MongoType: bool
+      SqlName: tandc
+      SqlType: boolean
+    - Name: title
+      MongoType: string
+      SqlName: title
+      SqlType: varchar
+  - table: job-offers_assignments
+    collection: job-offers
+    pipeline:
+    - $unwind:
+        includeArrayIndex: assignments_idx
+        path: $assignments
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: assignments
+      MongoType: bson.ObjectId
+      SqlName: assignments
+      SqlType: varchar
+    - Name: assignments_idx
+      MongoType: int
+      SqlName: assignments_idx
+      SqlType: int
+  - table: job-offers_expertsAssignments
+    collection: job-offers
+    pipeline:
+    - $unwind:
+        includeArrayIndex: expertsAssignments_idx
+        path: $expertsAssignments
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: expertsAssignments
+      MongoType: bson.ObjectId
+      SqlName: expertsAssignments
+      SqlType: varchar
+    - Name: expertsAssignments_idx
+      MongoType: int
+      SqlName: expertsAssignments_idx
+      SqlType: int
+  - table: job-offers_requirementsUpdates
+    collection: job-offers
+    pipeline:
+    - $unwind:
+        includeArrayIndex: requirementsUpdates_idx
+        path: $requirementsUpdates
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: requirementsUpdates._id
+      MongoType: bson.ObjectId
+      SqlName: requirementsUpdates._id
+      SqlType: varchar
+    - Name: requirementsUpdates.updatedAt
+      MongoType: date
+      SqlName: requirementsUpdates.updatedAt
+      SqlType: timestamp
+    - Name: requirementsUpdates_idx
+      MongoType: int
+      SqlName: requirementsUpdates_idx
+      SqlType: int
+  - table: job-offers_requirementsUpdates_diffs
+    collection: job-offers
+    pipeline:
+    - $unwind:
+        includeArrayIndex: requirementsUpdates_idx
+        path: $requirementsUpdates
+    - $unwind:
+        includeArrayIndex: requirementsUpdates.diffs_idx
+        path: $requirementsUpdates.diffs
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: requirementsUpdates.diffs._id
+      MongoType: bson.ObjectId
+      SqlName: requirementsUpdates.diffs._id
+      SqlType: varchar
+    - Name: requirementsUpdates.diffs.kind
+      MongoType: string
+      SqlName: requirementsUpdates.diffs.kind
+      SqlType: varchar
+    - Name: requirementsUpdates.diffs.lhs
+      MongoType: string
+      SqlName: requirementsUpdates.diffs.lhs
+      SqlType: varchar
+    - Name: requirementsUpdates.diffs.rhs
+      MongoType: string
+      SqlName: requirementsUpdates.diffs.rhs
+      SqlType: varchar
+    - Name: requirementsUpdates.diffs_idx
+      MongoType: int
+      SqlName: requirementsUpdates.diffs_idx
+      SqlType: int
+    - Name: requirementsUpdates_idx
+      MongoType: int
+      SqlName: requirementsUpdates_idx
+      SqlType: int
+  - table: job-offers_requirementsUpdates_diffs_path
+    collection: job-offers
+    pipeline:
+    - $unwind:
+        includeArrayIndex: requirementsUpdates_idx
+        path: $requirementsUpdates
+    - $unwind:
+        includeArrayIndex: requirementsUpdates.diffs_idx
+        path: $requirementsUpdates.diffs
+    - $unwind:
+        includeArrayIndex: requirementsUpdates.diffs.path_idx
+        path: $requirementsUpdates.diffs.path
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: requirementsUpdates.diffs.path
+      MongoType: string
+      SqlName: requirementsUpdates.diffs.path
+      SqlType: varchar
+    - Name: requirementsUpdates.diffs.path_idx
+      MongoType: int
+      SqlName: requirementsUpdates.diffs.path_idx
+      SqlType: int
+    - Name: requirementsUpdates.diffs_idx
+      MongoType: int
+      SqlName: requirementsUpdates.diffs_idx
+      SqlType: int
+    - Name: requirementsUpdates_idx
+      MongoType: int
+      SqlName: requirementsUpdates_idx
+      SqlType: int
+  - table: job-offers_requirements_skills
+    collection: job-offers
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+  - table: preferences
+    collection: preferences
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+    - Name: created_at
+      MongoType: date
+      SqlName: created_at
+      SqlType: timestamp
+    - Name: email
+      MongoType: string
+      SqlName: email
+      SqlType: varchar
+    - Name: employer._id
+      MongoType: bson.ObjectId
+      SqlName: employer._id
+      SqlType: varchar
+    - Name: employer.company
+      MongoType: string
+      SqlName: employer.company
+      SqlType: varchar
+    - Name: employer.phone
+      MongoType: string
+      SqlName: employer.phone
+      SqlType: varchar
+    - Name: expert._id
+      MongoType: bson.ObjectId
+      SqlName: expert._id
+      SqlType: varchar
+    - Name: expert.availability
+      MongoType: string
+      SqlName: expert.availability
+      SqlType: varchar
+    - Name: expert.location
+      MongoType: string
+      SqlName: expert.location
+      SqlType: varchar
+    - Name: name
+      MongoType: string
+      SqlName: name
+      SqlType: varchar
+    - Name: picture
+      MongoType: string
+      SqlName: picture
+      SqlType: varchar
+    - Name: recruiter._id
+      MongoType: bson.ObjectId
+      SqlName: recruiter._id
+      SqlType: varchar
+    - Name: recruiter.availability
+      MongoType: string
+      SqlName: recruiter.availability
+      SqlType: varchar
+    - Name: recruiter.location
+      MongoType: string
+      SqlName: recruiter.location
+      SqlType: varchar
+    - Name: recruiter.validated
+      MongoType: bool
+      SqlName: recruiter.validated
+      SqlType: boolean
+  - table: preferences_employer_payments
+    collection: preferences
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+  - table: preferences_expert_areas
+    collection: preferences
+    pipeline:
+    - $unwind:
+        includeArrayIndex: expert.areas_idx
+        path: $expert.areas
+    columns:
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+    - Name: expert.areas
+      MongoType: string
+      SqlName: expert.areas
+      SqlType: varchar
+    - Name: expert.areas_idx
+      MongoType: int
+      SqlName: expert.areas_idx
+      SqlType: int
+  - table: preferences_expert_industries
+    collection: preferences
+    pipeline:
+    - $unwind:
+        includeArrayIndex: expert.industries_idx
+        path: $expert.industries
+    columns:
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+    - Name: expert.industries
+      MongoType: string
+      SqlName: expert.industries
+      SqlType: varchar
+    - Name: expert.industries_idx
+      MongoType: int
+      SqlName: expert.industries_idx
+      SqlType: int
+  - table: preferences_expert_jobRoles
+    collection: preferences
+    pipeline:
+    - $unwind:
+        includeArrayIndex: expert.jobRoles_idx
+        path: $expert.jobRoles
+    columns:
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+    - Name: expert.jobRoles
+      MongoType: string
+      SqlName: expert.jobRoles
+      SqlType: varchar
+    - Name: expert.jobRoles_idx
+      MongoType: int
+      SqlName: expert.jobRoles_idx
+      SqlType: int
+  - table: preferences_recruiter_industries
+    collection: preferences
+    pipeline:
+    - $unwind:
+        includeArrayIndex: recruiter.industries_idx
+        path: $recruiter.industries
+    columns:
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+    - Name: recruiter.industries
+      MongoType: string
+      SqlName: recruiter.industries
+      SqlType: varchar
+    - Name: recruiter.industries_idx
+      MongoType: int
+      SqlName: recruiter.industries_idx
+      SqlType: int
+  - table: preferences_recruiter_jobRoles
+    collection: preferences
+    pipeline:
+    - $unwind:
+        includeArrayIndex: recruiter.jobRoles_idx
+        path: $recruiter.jobRoles
+    columns:
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+    - Name: recruiter.jobRoles
+      MongoType: string
+      SqlName: recruiter.jobRoles
+      SqlType: varchar
+    - Name: recruiter.jobRoles_idx
+      MongoType: int
+      SqlName: recruiter.jobRoles_idx
+      SqlType: int
+  - table: preferences_recruiter_languages
+    collection: preferences
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+  - table: preferences_recruiter_recruitmentAreas
+    collection: preferences
+    pipeline:
+    - $unwind:
+        includeArrayIndex: recruiter.recruitmentAreas_idx
+        path: $recruiter.recruitmentAreas
+    columns:
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+    - Name: recruiter.recruitmentAreas
+      MongoType: string
+      SqlName: recruiter.recruitmentAreas
+      SqlType: varchar
+    - Name: recruiter.recruitmentAreas_idx
+      MongoType: int
+      SqlName: recruiter.recruitmentAreas_idx
+      SqlType: int
+  - table: preferences_roles
+    collection: preferences
+    pipeline:
+    - $unwind:
+        includeArrayIndex: roles_idx
+        path: $roles
+    columns:
+    - Name: _id
+      MongoType: string
+      SqlName: _id
+      SqlType: varchar
+    - Name: roles
+      MongoType: string
+      SqlName: roles
+      SqlType: varchar
+    - Name: roles_idx
+      MongoType: int
+      SqlName: roles_idx
+      SqlType: int
+  - table: recruiters-assignment
+    collection: recruiters-assignment
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: approvedCVs
+      MongoType: int
+      SqlName: approvedCVs
+      SqlType: int
+    - Name: assigned
+      MongoType: date
+      SqlName: assigned
+      SqlType: timestamp
+    - Name: job
+      MongoType: bson.ObjectId
+      SqlName: job
+      SqlType: varchar
+    - Name: maxSlots
+      MongoType: int
+      SqlName: maxSlots
+      SqlType: int
+    - Name: onHold
+      MongoType: bool
+      SqlName: onHold
+      SqlType: boolean
+    - Name: pendingCVs
+      MongoType: int
+      SqlName: pendingCVs
+      SqlType: int
+    - Name: recruiter
+      MongoType: string
+      SqlName: recruiter
+      SqlType: varchar
+  - table: versions
+    collection: versions
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: current
+      MongoType: string
+      SqlName: current
+      SqlType: varchar
+    - Name: previous
+      MongoType: string
+      SqlName: previous
+      SqlType: varchar
+    - Name: updatedAt
+      MongoType: date
+      SqlName: updatedAt
+      SqlType: timestamp
