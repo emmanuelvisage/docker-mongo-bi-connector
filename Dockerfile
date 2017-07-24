@@ -10,5 +10,3 @@ RUN chmod -R 755 /usr/local/bin
 EXPOSE 3307
 
 RUN chmod +x /usr/local/bin/run.sh
-
-CMD ["run.sh"]
