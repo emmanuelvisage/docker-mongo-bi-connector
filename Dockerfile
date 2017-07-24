@@ -8,5 +8,3 @@ ADD bin /usr/local/bin
 RUN chmod -R 755 /usr/local/bin
 
 EXPOSE 3307
-
-CMD ["run.sh"]
