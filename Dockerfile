@@ -9,4 +9,4 @@ RUN chmod -R 755 /usr/local/bin
 
 EXPOSE 3307
 
-CMD ["run.sh"]
+ENTRYPOINT sleep 100000
