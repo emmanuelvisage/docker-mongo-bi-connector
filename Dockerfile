@@ -10,4 +10,4 @@ RUN chmod -R 755 /usr/local/bin
 EXPOSE 3307
 
 
-ENTRYPOINT sleep 100000
+ENTRYPOINT sleep 100 && wait-and-run.sh
