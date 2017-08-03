@@ -9,7 +9,7 @@ fi
 
 mongoDRDLParams="--host $MONGO_HOST --port $MONGO_PORT -d $DB_NAME -o schema.drdl"
 MONGO_URI="mongodb://${MONGO_HOST}:${MONGO_PORT}"
-mongoSQLDParams="--schema ${schemaFile} --mongo-uri $MONGO_URI"
+mongoSQLDParams="--addr $ADDR --schema ${schemaFile} --mongo-uri $MONGO_URI"
 
 if [ -n "$MONGO_USERNAME" ] && [ -n "$MONGO_PASSWORD" ]  && [ -n "$MONGO_AUTH_DB" ]; then
     USER_STRING="${MONGO_USERNAME}:${MONGO_PASSWORD}@"

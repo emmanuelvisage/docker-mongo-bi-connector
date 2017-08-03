@@ -84,8 +84,8 @@
       <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/run.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="165">
+              <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -293,12 +293,12 @@
       <workItem from="1489446652192" duration="28000" />
       <workItem from="1489446811970" duration="25000" />
       <workItem from="1491519659869" duration="17249000" />
-      <workItem from="1500910609432" duration="22856000" />
+      <workItem from="1500910609432" duration="23500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61766000" />
+    <option name="totallyTimeSpent" value="62410000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -736,8 +736,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="165">
+          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
           <folding />
         </state>
       </provider>
