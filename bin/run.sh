@@ -28,8 +28,13 @@ echo $MONGO_URI
 mongoSQLDParams="--addr $ADDR --schema ${schemaFile} --mongo-uri $MONGO_URI"
 
 if [ -n "$MONGO_AUTH" ]; then
-    mongoSQLDParams="${mongoSQLDParams} --auth --mongo-ssl"
+    mongoSQLDParams="${mongoSQLDParams} --auth"
 fi
+
+if [ -n "$MONGO_SSL" ]; then
+    mongoSQLDParams="${mongoSQLDParams} --mongo-ssl"
+fi
+
 
 echo $mongoSQLDParams
 
