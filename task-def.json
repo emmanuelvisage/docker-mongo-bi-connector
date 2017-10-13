@@ -47,7 +47,7 @@
       "readonlyRootFilesystem": false,
       "image": "visage/mongo-bi-connector:{{IMAGE_VERSION}}",
       "command": [
-        "run.sh"
+        "wait-and-run.sh"
       ],
       "dockerLabels": {},
       "cpu": 0,
