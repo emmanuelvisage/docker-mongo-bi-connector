@@ -44,11 +44,8 @@
           "value": "/etc/mongodb-bi-connector/schema/mongomysqlmap.drdl"
         }
       ],
-      "links": [
-        "mongo-visage"
-      ],
       "readonlyRootFilesystem": false,
-      "image": "visage/mongo-bi-connector:v0.0.52",
+      "image": "visage/mongo-bi-connector:{{IMAGE_VERSION}}",
       "command": [
         "run.sh"
       ],
