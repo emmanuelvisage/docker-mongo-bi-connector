@@ -21,7 +21,7 @@
       "environment": [
         {
           "name": "ADDR",
-          "value": "172.17.0.1:3307"
+          "value": "172.17.0.0:3307"
         },
         {
           "name": "DB_NAME",
