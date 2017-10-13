@@ -1,0 +1,76 @@
+{
+  "containerDefinitions": [
+    {
+      "memory": 1024,
+      "extraHosts": [],
+      "dnsServers": [],
+      "dnsSearchDomains": [],
+      "portMappings": [
+        {
+          "hostPort": 9015,
+          "containerPort": 3307,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "entryPoint": [],
+      "mountPoints": [],
+      "name": "mongo-bi-connector",
+      "ulimits": [],
+      "dockerSecurityOptions": [],
+      "environment": [
+        {
+          "name": "ADDR",
+          "value": "172.17.0.1:3307"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "visage"
+        },
+        {
+          "name": "MONGO_AUTH",
+          "value": "1"
+        },
+        {
+          "name": "MONGO_HOST",
+          "value": "{{HOST_MONGO}}"
+        },
+        {
+          "name": "MONGO_PORT",
+          "value": "{{PORT_MONGO}}"
+        },
+        {
+          "name": "SCHEMA_PATH",
+          "value": "/etc/mongodb-bi-connector/schema/mongomysqlmap.drdl"
+        }
+      ],
+      "links": [
+        "mongo-visage"
+      ],
+      "readonlyRootFilesystem": false,
+      "image": "visage/mongo-bi-connector:v0.0.52",
+      "command": [
+        "run.sh"
+      ],
+      "dockerLabels": {},
+      "cpu": 0,
+      "privileged": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "awslogs-be-mongo-bi-connector",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "awslogs-be-mongo-bi-connector-{{INSTANCE_ID}}"
+        }
+      }
+    }
+  ],
+  "placementConstraints": [
+    {
+      "expression": "attribute:role == tools",
+      "type": "memberOf"
+    }
+  ],
+  "volumes": [],
+  "family": "{{ECS_FAMILY}}"
+}
