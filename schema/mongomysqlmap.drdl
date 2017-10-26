@@ -223,9 +223,9 @@ schema:
       MongoType: string
       SqlName: candidate.socialPhotoUrl
       SqlType: varchar
-    - Name: created_at
+    - Name: createdAt
       MongoType: date
-      SqlName: created_at
+      SqlName: createdAt
       SqlType: timestamp
   - table: candidates_candidate_applications
     collection: candidates
@@ -349,9 +349,13 @@ schema:
       MongoType: string
       SqlName: role
       SqlType: varchar
-    - Name: sentOn
+    - Name: invitedAt
       MongoType: date
-      SqlName: sentOn
+      SqlName: invitedAt
+      SqlType: timestamp
+    - Name: confirmedAt
+      MongoType: date
+      SqlName: confirmedAt
       SqlType: timestamp
     - Name: status
       MongoType: string
@@ -609,9 +613,9 @@ schema:
       MongoType: string
       SqlName: _id
       SqlType: varchar
-    - Name: created_at
+    - Name: createdAt
       MongoType: date
-      SqlName: created_at
+      SqlName: createdAt
       SqlType: timestamp
     - Name: email
       MongoType: string
