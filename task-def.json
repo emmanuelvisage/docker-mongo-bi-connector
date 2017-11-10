@@ -1,7 +1,7 @@
 {
   "containerDefinitions": [
     {
-      "memory": 512,
+      "memory": 6144,
       "extraHosts": [],
       "dnsServers": [],
       "dnsSearchDomains": [],
