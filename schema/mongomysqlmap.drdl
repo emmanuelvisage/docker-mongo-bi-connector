@@ -605,6 +605,185 @@ schema:
       MongoType: bson.ObjectId
       SqlName: _id
       SqlType: varchar
+  - table: job-offers_journeys
+    collection: job-offers
+    pipeline:
+    - $unwind:
+        includeArrayIndex: journeys_idx
+        path: $journeys
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: journeys._id
+      MongoType: bson.ObjectId
+      SqlName: journeys._id
+      SqlType: varchar
+    - Name: journeys.baseJourney
+      MongoType: bson.ObjectId
+      SqlName: journeys.baseJourney
+      SqlType: varchar
+    - Name: journeys.current._id
+      MongoType: bson.ObjectId
+      SqlName: journeys.current._id
+      SqlType: varchar
+    - Name: journeys.current.emailA._id
+      MongoType: bson.ObjectId
+      SqlName: journeys.current.emailA._id
+      SqlType: varchar
+    - Name: journeys.current.emailA.bounce
+      MongoType: int
+      SqlName: journeys.current.emailA.bounce
+      SqlType: int
+    - Name: journeys.current.emailA.click
+      MongoType: int
+      SqlName: journeys.current.emailA.click
+      SqlType: int
+    - Name: journeys.current.emailA.complaint
+      MongoType: int
+      SqlName: journeys.current.emailA.complaint
+      SqlType: int
+    - Name: journeys.current.emailA.delivery
+      MongoType: int
+      SqlName: journeys.current.emailA.delivery
+      SqlType: int
+    - Name: journeys.current.emailA.open
+      MongoType: int
+      SqlName: journeys.current.emailA.open
+      SqlType: int
+    - Name: journeys.current.emailA.reject
+      MongoType: int
+      SqlName: journeys.current.emailA.reject
+      SqlType: int
+    - Name: journeys.current.emailA.reply
+      MongoType: int
+      SqlName: journeys.current.emailA.reply
+      SqlType: int
+    - Name: journeys.current.emailA.send
+      MongoType: int
+      SqlName: journeys.current.emailA.send
+      SqlType: int
+    - Name: journeys.current.emailA.template._id
+      MongoType: bson.ObjectId
+      SqlName: journeys.current.emailA.template._id
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.baseTemplate
+      MongoType: bson.ObjectId
+      SqlName: journeys.current.emailA.template.baseTemplate
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.from._id
+      MongoType: bson.ObjectId
+      SqlName: journeys.current.emailA.template.from._id
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.from.emailAddress
+      MongoType: string
+      SqlName: journeys.current.emailA.template.from.emailAddress
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.from.name
+      MongoType: string
+      SqlName: journeys.current.emailA.template.from.name
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.html
+      MongoType: string
+      SqlName: journeys.current.emailA.template.html
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.plainText
+      MongoType: string
+      SqlName: journeys.current.emailA.template.plainText
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.replyTo._id
+      MongoType: bson.ObjectId
+      SqlName: journeys.current.emailA.template.replyTo._id
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.replyTo.emailAddress
+      MongoType: string
+      SqlName: journeys.current.emailA.template.replyTo.emailAddress
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.replyTo.name
+      MongoType: string
+      SqlName: journeys.current.emailA.template.replyTo.name
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.subject
+      MongoType: string
+      SqlName: journeys.current.emailA.template.subject
+      SqlType: varchar
+    - Name: journeys.current.emailA.template.tId
+      MongoType: string
+      SqlName: journeys.current.emailA.template.tId
+      SqlType: varchar
+    - Name: journeys.current.emailA.unsubscribe
+      MongoType: int
+      SqlName: journeys.current.emailA.unsubscribe
+      SqlType: int
+    - Name: journeys.current.emailB._id
+      MongoType: bson.ObjectId
+      SqlName: journeys.current.emailB._id
+      SqlType: varchar
+    - Name: journeys.current.emailB.bounce
+      MongoType: int
+      SqlName: journeys.current.emailB.bounce
+      SqlType: int
+    - Name: journeys.current.emailB.click
+      MongoType: int
+      SqlName: journeys.current.emailB.click
+      SqlType: int
+    - Name: journeys.current.emailB.complaint
+      MongoType: int
+      SqlName: journeys.current.emailB.complaint
+      SqlType: int
+    - Name: journeys.current.emailB.delivery
+      MongoType: int
+      SqlName: journeys.current.emailB.delivery
+      SqlType: int
+    - Name: journeys.current.emailB.open
+      MongoType: int
+      SqlName: journeys.current.emailB.open
+      SqlType: int
+    - Name: journeys.current.emailB.reply
+      MongoType: int
+      SqlName: journeys.current.emailB.reply
+      SqlType: int
+    - Name: journeys.current.emailB.send
+      MongoType: int
+      SqlName: journeys.current.emailB.send
+      SqlType: int
+    - Name: journeys.current.emailB.unsubscribe
+      MongoType: int
+      SqlName: journeys.current.emailB.unsubscribe
+      SqlType: int
+    - Name: journeys.current.startedAt
+      MongoType: date
+      SqlName: journeys.current.startedAt
+      SqlType: timestamp
+    - Name: journeys.isClientEditAllowed
+      MongoType: bool
+      SqlName: journeys.isClientEditAllowed
+      SqlType: boolean
+    - Name: journeys.isJobDependent
+      MongoType: bool
+      SqlName: journeys.isJobDependent
+      SqlType: boolean
+    - Name: journeys.section
+      MongoType: string
+      SqlName: journeys.section
+      SqlType: varchar
+    - Name: journeys.timing.dimension
+      MongoType: string
+      SqlName: journeys.timing.dimension
+      SqlType: varchar
+    - Name: journeys.timing.value
+      MongoType: int
+      SqlName: journeys.timing.value
+      SqlType: int
+    - Name: journeys.type
+      MongoType: string
+      SqlName: journeys.type
+      SqlType: varchar
+    - Name: journeys_idx
+      MongoType: int
+      SqlName: journeys_idx
+      SqlType: int
   - table: preferences
     collection: preferences
     pipeline: []
@@ -839,3 +1018,304 @@ schema:
       MongoType: date
       SqlName: updatedAt
       SqlType: timestamp
+  - table: conversations
+    collection: conversations
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: click
+      MongoType: int
+      SqlName: click
+      SqlType: int
+    - Name: context.baseJourneyId
+      MongoType: bson.ObjectId
+      SqlName: context.baseJourneyId
+      SqlType: varchar
+    - Name: context.candidateId
+      MongoType: bson.ObjectId
+      SqlName: context.candidateId
+      SqlType: varchar
+    - Name: context.emailType
+      MongoType: string
+      SqlName: context.emailType
+      SqlType: varchar
+    - Name: context.jobId
+      MongoType: bson.ObjectId
+      SqlName: context.jobId
+      SqlType: varchar
+    - Name: context.journeyId
+      MongoType: bson.ObjectId
+      SqlName: context.journeyId
+      SqlType: varchar
+    - Name: context.submissionId
+      MongoType: bson.ObjectId
+      SqlName: context.submissionId
+      SqlType: varchar
+    - Name: from._id
+      MongoType: bson.ObjectId
+      SqlName: from._id
+      SqlType: varchar
+    - Name: from.emailAddress
+      MongoType: string
+      SqlName: from.emailAddress
+      SqlType: varchar
+    - Name: from.name
+      MongoType: string
+      SqlName: from.name
+      SqlType: varchar
+    - Name: inactive
+      MongoType: bool
+      SqlName: inactive
+      SqlType: boolean
+    - Name: open
+      MongoType: int
+      SqlName: open
+      SqlType: int
+    - Name: replied
+      MongoType: bool
+      SqlName: replied
+      SqlType: boolean
+    - Name: reply
+      MongoType: int
+      SqlName: reply
+      SqlType: int
+    - Name: status
+      MongoType: string
+      SqlName: status
+      SqlType: varchar
+    - Name: to._id
+      MongoType: bson.ObjectId
+      SqlName: to._id
+      SqlType: varchar
+    - Name: to.emailAddress
+      MongoType: string
+      SqlName: to.emailAddress
+      SqlType: varchar
+    - Name: to.name
+      MongoType: string
+      SqlName: to.name
+      SqlType: varchar
+  - table: journeys
+    collection: journeys
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: current.emailA.bounce
+      MongoType: int
+      SqlName: current.emailA.bounce
+      SqlType: int
+    - Name: current.emailA.click
+      MongoType: int
+      SqlName: current.emailA.click
+      SqlType: int
+    - Name: current.emailA.complaint
+      MongoType: int
+      SqlName: current.emailA.complaint
+      SqlType: int
+    - Name: current.emailA.delivery
+      MongoType: int
+      SqlName: current.emailA.delivery
+      SqlType: int
+    - Name: current.emailA.open
+      MongoType: int
+      SqlName: current.emailA.open
+      SqlType: int
+    - Name: current.emailA.reply
+      MongoType: int
+      SqlName: current.emailA.reply
+      SqlType: int
+    - Name: current.emailA.send
+      MongoType: int
+      SqlName: current.emailA.send
+      SqlType: int
+    - Name: current.emailA.template.baseTemplate
+      MongoType: bson.ObjectId
+      SqlName: current.emailA.template.baseTemplate
+      SqlType: varchar
+    - Name: current.emailA.template.from.emailAddress
+      MongoType: string
+      SqlName: current.emailA.template.from.emailAddress
+      SqlType: varchar
+    - Name: current.emailA.template.from.name
+      MongoType: string
+      SqlName: current.emailA.template.from.name
+      SqlType: varchar
+    - Name: current.emailA.template.html
+      MongoType: string
+      SqlName: current.emailA.template.html
+      SqlType: varchar
+    - Name: current.emailA.template.plainText
+      MongoType: string
+      SqlName: current.emailA.template.plainText
+      SqlType: varchar
+    - Name: current.emailA.template.replyTo.emailAddress
+      MongoType: string
+      SqlName: current.emailA.template.replyTo.emailAddress
+      SqlType: varchar
+    - Name: current.emailA.template.replyTo.name
+      MongoType: string
+      SqlName: current.emailA.template.replyTo.name
+      SqlType: varchar
+    - Name: current.emailA.template.subject
+      MongoType: string
+      SqlName: current.emailA.template.subject
+      SqlType: varchar
+    - Name: current.emailA.template.tId
+      MongoType: string
+      SqlName: current.emailA.template.tId
+      SqlType: varchar
+    - Name: current.emailA.unsubscribe
+      MongoType: int
+      SqlName: current.emailA.unsubscribe
+      SqlType: int
+    - Name: current.startedAt
+      MongoType: date
+      SqlName: current.startedAt
+      SqlType: timestamp
+    - Name: isClientEditAllowed
+      MongoType: bool
+      SqlName: isClientEditAllowed
+      SqlType: boolean
+    - Name: isJobDependent
+      MongoType: bool
+      SqlName: isJobDependent
+      SqlType: boolean
+    - Name: section
+      MongoType: string
+      SqlName: section
+      SqlType: varchar
+    - Name: timing.dimension
+      MongoType: string
+      SqlName: timing.dimension
+      SqlType: varchar
+    - Name: timing.value
+      MongoType: int
+      SqlName: timing.value
+      SqlType: int
+    - Name: type
+      MongoType: string
+      SqlName: type
+      SqlType: varchar
+  - table: ses-logs
+    collection: ses-logs
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: date
+      MongoType: date
+      SqlName: date
+      SqlType: timestamp
+    - Name: emailType
+      MongoType: string
+      SqlName: emailType
+      SqlType: varchar
+    - Name: from._id
+      MongoType: bson.ObjectId
+      SqlName: from._id
+      SqlType: varchar
+    - Name: from.emailAddress
+      MongoType: string
+      SqlName: from.emailAddress
+      SqlType: varchar
+    - Name: from.name
+      MongoType: string
+      SqlName: from.name
+      SqlType: varchar
+    - Name: original.Bucket
+      MongoType: string
+      SqlName: original.Bucket
+      SqlType: varchar
+    - Name: original.Key
+      MongoType: string
+      SqlName: original.Key
+      SqlType: varchar
+    - Name: subject
+      MongoType: string
+      SqlName: subject
+      SqlType: varchar
+    - Name: to._id
+      MongoType: bson.ObjectId
+      SqlName: to._id
+      SqlType: varchar
+    - Name: to.emailAddress
+      MongoType: string
+      SqlName: to.emailAddress
+      SqlType: varchar
+    - Name: to.name
+      MongoType: string
+      SqlName: to.name
+      SqlType: varchar
+    - Name: type
+      MongoType: string
+      SqlName: type
+      SqlType: varchar
+  - table: templates
+    collection: templates
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: from._id
+      MongoType: bson.ObjectId
+      SqlName: from._id
+      SqlType: varchar
+    - Name: from.emailAddress
+      MongoType: string
+      SqlName: from.emailAddress
+      SqlType: varchar
+    - Name: from.name
+      MongoType: string
+      SqlName: from.name
+      SqlType: varchar
+    - Name: html
+      MongoType: string
+      SqlName: html
+      SqlType: varchar
+    - Name: plainText
+      MongoType: string
+      SqlName: plainText
+      SqlType: varchar
+    - Name: replyTo._id
+      MongoType: bson.ObjectId
+      SqlName: replyTo._id
+      SqlType: varchar
+    - Name: replyTo.emailAddress
+      MongoType: string
+      SqlName: replyTo.emailAddress
+      SqlType: varchar
+    - Name: replyTo.name
+      MongoType: string
+      SqlName: replyTo.name
+      SqlType: varchar
+    - Name: subject
+      MongoType: string
+      SqlName: subject
+      SqlType: varchar
+    - Name: tId
+      MongoType: string
+      SqlName: tId
+      SqlType: varchar
+
