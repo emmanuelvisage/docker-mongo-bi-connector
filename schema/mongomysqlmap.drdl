@@ -125,6 +125,37 @@ schema:
       MongoType: date
       SqlName: submittedAt
       SqlType: timestamp
+  - table: candidates-submissions_emailSubmissions
+    collection: candidates-submissions
+    pipeline:
+    - $unwind:
+        includeArrayIndex: emailSubmissions_idx
+        path: $emailSubmissions
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: emailSubmissions._id
+      MongoType: bson.ObjectId
+      SqlName: emailSubmissions._id
+      SqlType: varchar
+    - Name: emailSubmissions.email
+      MongoType: string
+      SqlName: emailSubmissions.email
+      SqlType: varchar
+    - Name: emailSubmissions.hasChaseEnded
+      MongoType: bool
+      SqlName: emailSubmissions.hasChaseEnded
+      SqlType: boolean
+    - Name: emailSubmissions.recruiter
+      MongoType: string
+      SqlName: emailSubmissions.recruiter
+      SqlType: varchar
+    - Name: emailSubmissions_idx
+      MongoType: int
+      SqlName: emailSubmissions_idx
+      SqlType: int
   - table: candidates-submissions_history
     collection: candidates-submissions
     pipeline:
@@ -1318,4 +1349,3 @@ schema:
       MongoType: string
       SqlName: tId
       SqlType: varchar
-
