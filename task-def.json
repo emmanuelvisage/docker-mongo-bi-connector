@@ -45,7 +45,7 @@
         }
       ],
       "readonlyRootFilesystem": false,
-      "image": "visage/mongo-bi-connector:{{IMAGE_VERSION}}",
+      "image": "732934994755.dkr.ecr.us-east-1.amazonaws.com/visage/mongo-bi-connector:{{IMAGE_VERSION}}",
       "command": [
         "wait-and-run.sh"
       ],
