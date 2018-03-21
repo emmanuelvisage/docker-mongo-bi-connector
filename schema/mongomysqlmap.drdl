@@ -1297,6 +1297,18 @@ schema:
       MongoType: string
       SqlName: type
       SqlType: varchar
+    - Name: context.submissionId
+      MongoType: bson.ObjectId
+      SqlName: context.submissionId
+      SqlType: varchar
+    - Name: context.jobId
+      MongoType: bson.ObjectId
+      SqlName: context.jobId
+      SqlType: varchar
+    - Name: context.candidateId
+      MongoType: bson.ObjectId
+      SqlName: context.candidateId
+      SqlType: varchar
   - table: templates
     collection: templates
     pipeline: []
