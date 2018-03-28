@@ -827,6 +827,10 @@ schema:
       MongoType: date
       SqlName: createdAt
       SqlType: timestamp
+    - Name: recruiterAt
+      MongoType: date
+      SqlName: recruiterAt
+      SqlType: timestamp
     - Name: email
       MongoType: string
       SqlName: email
