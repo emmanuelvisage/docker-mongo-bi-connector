@@ -448,9 +448,57 @@ schema:
       MongoType: string
       SqlName: list.recruiters
       SqlType: varchar
-    - Name: location
+    - Name: location._id
+      MongoType: bson.ObjectId
+      SqlName: location._id
+      SqlType: varchar
+    - Name: location.city._id
+      MongoType: bson.ObjectId
+      SqlName: location.city._id
+      SqlType: varchar
+    - Name: location.city.longName
       MongoType: string
-      SqlName: location
+      SqlName: location.city.longName
+      SqlType: varchar
+    - Name: location.city.shortName
+      MongoType: string
+      SqlName: location.city.shortName
+      SqlType: varchar
+    - Name: location.country._id
+      MongoType: bson.ObjectId
+      SqlName: location.country._id
+      SqlType: varchar
+    - Name: location.country.longName
+      MongoType: string
+      SqlName: location.country.longName
+      SqlType: varchar
+    - Name: location.country.shortName
+      MongoType: string
+      SqlName: location.country.shortName
+      SqlType: varchar
+    - Name: location.formatted
+      MongoType: string
+      SqlName: location.formatted
+      SqlType: varchar
+    - Name: location.geometry.lat
+      MongoType: float64
+      SqlName: location.geometry.lat
+      SqlType: float64
+    - Name: location.geometry.lng
+      MongoType: float64
+      SqlName: location.geometry.lng
+      SqlType: float64
+    - Name: location.state._id
+      MongoType: bson.ObjectId
+      SqlName: location.state._id
+      SqlType: varchar
+    - Name: location.state.longName
+      MongoType: string
+      SqlName: location.state.longName
+      SqlType: varchar
+    - Name: location.state.shortName
+      MongoType: string
+      SqlName: location.state.shortName
       SqlType: varchar
     - Name: maxSourced
       MongoType: int
@@ -1093,6 +1141,10 @@ schema:
       MongoType: bson.ObjectId
       SqlName: context.submissionId
       SqlType: varchar
+    - Name: forwarded
+      MongoType: bool
+      SqlName: forwarded
+      SqlType: boolean
     - Name: from._id
       MongoType: bson.ObjectId
       SqlName: from._id
@@ -1118,9 +1170,9 @@ schema:
       SqlName: replied
       SqlType: boolean
     - Name: reply
-      MongoType: int
+      MongoType: number
       SqlName: reply
-      SqlType: int
+      SqlType: numeric
     - Name: status
       MongoType: string
       SqlName: status
@@ -1253,6 +1305,34 @@ schema:
       MongoType: bson.ObjectId
       SqlName: _id
       SqlType: varchar
+    - Name: context.baseJourneyId
+      MongoType: bson.ObjectId
+      SqlName: context.baseJourneyId
+      SqlType: varchar
+    - Name: context.candidateId
+      MongoType: bson.ObjectId
+      SqlName: context.candidateId
+      SqlType: varchar
+    - Name: context.emailType
+      MongoType: string
+      SqlName: context.emailType
+      SqlType: varchar
+    - Name: context.jobId
+      MongoType: bson.ObjectId
+      SqlName: context.jobId
+      SqlType: varchar
+    - Name: context.journeyId
+      MongoType: bson.ObjectId
+      SqlName: context.journeyId
+      SqlType: varchar
+    - Name: context.submissionId
+      MongoType: bson.ObjectId
+      SqlName: context.submissionId
+      SqlType: varchar
+    - Name: conversation
+      MongoType: bson.ObjectId
+      SqlName: conversation
+      SqlType: varchar
     - Name: date
       MongoType: date
       SqlName: date
@@ -1261,6 +1341,10 @@ schema:
       MongoType: string
       SqlName: emailType
       SqlType: varchar
+    - Name: forwarded
+      MongoType: bool
+      SqlName: forwarded
+      SqlType: boolean
     - Name: from._id
       MongoType: bson.ObjectId
       SqlName: from._id
@@ -1280,6 +1364,18 @@ schema:
     - Name: original.Key
       MongoType: string
       SqlName: original.Key
+      SqlType: varchar
+    - Name: originalFrom._id
+      MongoType: bson.ObjectId
+      SqlName: originalFrom._id
+      SqlType: varchar
+    - Name: originalFrom.emailAddress
+      MongoType: string
+      SqlName: originalFrom.emailAddress
+      SqlType: varchar
+    - Name: originalFrom.name
+      MongoType: string
+      SqlName: originalFrom.name
       SqlType: varchar
     - Name: subject
       MongoType: string
@@ -1301,18 +1397,33 @@ schema:
       MongoType: string
       SqlName: type
       SqlType: varchar
-    - Name: context.submissionId
+  - table: ses-logs_predictions
+    collection: ses-logs
+    pipeline: []
+    columns:
+    - Name: _id
       MongoType: bson.ObjectId
-      SqlName: context.submissionId
+      SqlName: _id
       SqlType: varchar
-    - Name: context.jobId
+  - table: ses-logs_tags
+    collection: ses-logs
+    pipeline:
+    - $unwind:
+        includeArrayIndex: tags_idx
+        path: $tags
+    columns:
+    - Name: _id
       MongoType: bson.ObjectId
-      SqlName: context.jobId
+      SqlName: _id
       SqlType: varchar
-    - Name: context.candidateId
-      MongoType: bson.ObjectId
-      SqlName: context.candidateId
+    - Name: tags
+      MongoType: string
+      SqlName: tags
       SqlType: varchar
+    - Name: tags_idx
+      MongoType: int
+      SqlName: tags_idx
+      SqlType: int
   - table: templates
     collection: templates
     pipeline: []
