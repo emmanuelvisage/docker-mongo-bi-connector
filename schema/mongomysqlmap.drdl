@@ -1476,3 +1476,27 @@ schema:
       MongoType: string
       SqlName: tId
       SqlType: varchar
+  - table: score-history
+    collection: score-history
+    pipeline: []
+    columns:
+    - Name: __v
+      MongoType: int
+      SqlName: __v
+      SqlType: int
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: varchar
+    - Name: at
+      MongoType: date
+      SqlName: at
+      SqlType: timestamp
+    - Name: recruiter
+      MongoType: string
+      SqlName: recruiter
+      SqlType: varchar
+    - Name: score
+      MongoType: int
+      SqlName: score
+      SqlType: int
