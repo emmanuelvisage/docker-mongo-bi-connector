@@ -46,3 +46,11 @@ To use it you need to override the  default command
 Example with docker compose:
 
 ```command: ["wait-for-it.sh", "-t", "0", "my-mongo-db:27017", "--","run.sh","-vv"] ```
+
+**How to add a collection to the schema?**
+
+With a running MongoDB you can use the mongodrdl executable to infer the schema of a collection.
+
+```mongodrdl -d <db_name> -c <collection_name> -o tmp.drdl -u <user> -s 100000 -p <password> --authenticationDatabase <auth_info>```
+
+You can now append the content of the tmp.drdl file to your schema file, which is schema/mongomysqlmap.drdl by default (remember to get rid of the first line of the tmp.drdl first).
